@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "proba.sln"
+    "dotnet.defaultSolution": "Supernova.sln"
 }

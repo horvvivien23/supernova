@@ -887,13 +887,8 @@ MonoBehaviour:
   - {fileID: 206589151}
   - {fileID: 1075934555}
   explosionPrefab: {fileID: 2051617383152068415, guid: d9a29320576acf94d9c8ee079df3ba5d, type: 3}
-<<<<<<< HEAD
-  gameOverPanel: {fileID: 1168635752}
-  scoreManager: {fileID: 2067781408}
-=======
   gameOverPanel: {fileID: 0}
   scoreManager: {fileID: 0}
->>>>>>> 6ea5eda5593e496d3216cb857078b9e1085be706
 --- !u!1001 &702090940
 PrefabInstance:
   m_ObjectHideFlags: 0
