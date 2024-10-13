@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+  <title>SpaceShooter</title>
+
+  <!-- Fő űrhajó -->
+  <player>
+    <name>MainShip</name>
+    <controls>
+      <moveLeft>ArrowLeft</moveLeft>
+      <moveRight>ArrowRight</moveRight>
+      <shoot>Space</shoot>
+      <pause>Esc</pause>
+    </controls>
+    <lives>3</lives>
+    <actions>
+      <shoot>single</shoot> <!-- Egyszeri lövés -->
+      <explosionAnimation>true</explosionAnimation> <!-- Felrobban, ha meghal -->
+    </actions>
+  </player>
+
+  <!-- Ellenséges űrhajók -->
+  <enemies>
+    <enemy>
+      <name>EnemyShip1</name>
+      <movement>auto</movement> <!-- Automatikusan mozog jobbra és balra -->
+      <shooting>random</shooting> <!-- Random lövési sorrend -->
+      <health>1</health> <!-- Egyszeri lövés megöli -->
+      <explosionAnimation>true</explosionAnimation> <!-- Robbanás animáció -->
+    </enemy>
+
+    <enemy>
+      <name>EnemyShip2</name>
+      <movement>auto</movement>
+      <shooting>random</shooting>
+      <health>1</health>
+      <explosionAnimation>true</explosionAnimation>
+    </enemy>
+
+    <enemy>
+      <name>EnemyShip3</name>
+      <movement>auto</movement>
+      <shooting>random</shooting>
+      <health>1</health>
+      <explosionAnimation>true</explosionAnimation>
+    </enemy>
+
+    <enemy>
+      <name>EnemyShip4</name>
+      <movement>auto</movement>
+      <shooting>random</shooting>
+      <health>1</health>
+      <explosionAnimation>true</explosionAnimation>
+    </enemy>
+
+    <enemy>
+      <name>EnemyShip5</name>
+      <movement>auto</movement>
+      <shooting>random</shooting>
+      <health>1</health>
+      <explosionAnimation>true</explosionAnimation>
+    </enemy>
+
+    <enemy>
+      <name>EnemyShip6</name>
+      <movement>auto</movement>
+      <shooting>random</shooting>
+      <health>1</health>
+      <explosionAnimation>true</explosionAnimation>
+    </enemy>
+  </enemies>
+
+  <!-- Játék mechanikák -->
+  <gameMechanics>
+    <pauseGame>true</pauseGame> <!-- Esc gombbal szünetelés -->
+    <resumeGame>true</resumeGame> <!-- Újraindítás az Esc megnyomásával -->
+    <gameOver>
+      <condition>playerLivesZero</condition> <!-- Ha elfogy az élete a játékosnak -->
+      <panel>GameOverPanel</panel> <!-- Game Over panel megjelenik -->
+    </gameOver>
+  </gameMechanics>
+</game>
