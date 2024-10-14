@@ -23,12 +23,13 @@ public class PlayerLives : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
+        //Debug.Log("Ütközés történt: " + collision.collider.gameObject.tag); // Debug üzenet
         if (collision.collider.gameObject.tag == "Enemy")
         {
             Destroy(collision.collider.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity); 
             lives -= 1;
             for(int i = 0; i < livesUI.Length; i++)
             {
@@ -42,6 +43,31 @@ public class PlayerLives : MonoBehaviour
                 }
             }
             if(lives <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                gameOverPanel.SetActive(true);
+                scoreManager.HighScoreUpdate();
+            }
+        }
+
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            Destroy(collision.gameObject);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            lives -= 1;
+            for (int i = 0; i < livesUI.Length; i++)
+            {
+                if (i < lives)
+                {
+                    livesUI[i].enabled = true;
+                }
+                else
+                {
+                    livesUI[i].enabled = false;
+                }
+            }
+            if (lives <= 0)
             {
                 Destroy(gameObject);
                 Time.timeScale = 0;

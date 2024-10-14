@@ -7,6 +7,8 @@ TagManager:
   - Boundary
   - Enemy
   - Enemy Projectile
+  - Asteroid
+  - Spaceship
   layers:
   - Default
   - TransparentFX
