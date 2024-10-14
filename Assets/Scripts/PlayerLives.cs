@@ -14,24 +14,24 @@ public class PlayerLives : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
+    }
+    
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Ütközés történt: " + collision.collider.gameObject.tag); // Debug üzenet
+
         if (collision.collider.gameObject.tag == "Enemy")
         {
             Destroy(collision.collider.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity); 
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             lives -= 1;
-            for(int i = 0; i < livesUI.Length; i++)
+            for (int i = 0; i < livesUI.Length; i++)
             {
                 if (i < lives)
                 {
@@ -42,7 +42,36 @@ public class PlayerLives : MonoBehaviour
                     livesUI[i].enabled = false;
                 }
             }
-            if(lives <= 0)
+            if (lives <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                gameOverPanel.SetActive(true);
+                scoreManager.HighScoreUpdate();
+            }
+        }
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy Projectile")
+        {
+            Destroy(collision.gameObject);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            lives -= 1;
+            for (int i = 0; i < livesUI.Length; i++)
+            {
+                if (i < lives)
+                {
+                    livesUI[i].enabled = true;
+                }
+                else
+                {
+                    livesUI[i].enabled = false;
+                }
+            }
+            if (lives <= 0)
             {
                 Destroy(gameObject);
                 Time.timeScale = 0;
@@ -70,33 +99,6 @@ public class PlayerLives : MonoBehaviour
             if (lives <= 0)
             {
                 Destroy(gameObject);
-                Time.timeScale = 0;
-                gameOverPanel.SetActive(true);
-                scoreManager.HighScoreUpdate();
-            }
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy Projectile")
-        {
-            Destroy(collision.gameObject);
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            lives -= 1;
-            for (int i = 0; i < livesUI.Length; i++)
-            {
-                if (i < lives)
-                {
-                    livesUI[i].enabled = true;
-                }
-                else
-                {
-                    livesUI[i].enabled = false;
-                }
-            }
-            if (lives <= 0)
-            {
-                Destroy(gameObject); 
                 Time.timeScale = 0;
                 gameOverPanel.SetActive(true);
                 scoreManager.HighScoreUpdate();
