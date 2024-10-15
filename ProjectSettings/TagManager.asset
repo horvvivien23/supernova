@@ -9,6 +9,7 @@ TagManager:
   - Enemy Projectile
   - Asteroid
   - Spaceship
+  - Goal
   layers:
   - Default
   - TransparentFX
