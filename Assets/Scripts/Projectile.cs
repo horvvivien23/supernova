@@ -28,7 +28,28 @@ public class Projectile : MonoBehaviour
             pointManager.UpdateScore(50); 
             Destroy(gameObject);
         }
-        if(collision.gameObject.tag == "Boundary")
+        /*if(collision.gameObject.tag == "Boss")
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            // Hozzáférés a boss scripthez és élet csökkentése
+            Boss boss = collision.gameObject.GetComponent<Boss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(); // Csökkenti a boss életét
+            }
+
+            pointManager.UpdateScore(50); // Frissíti a pontszámot
+            Destroy(gameObject); // Eltávolítja a lövedéket
+        }*/
+        if (collision.gameObject.tag == "Asteroid")
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
+            pointManager.UpdateScore(50);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Boundary")
         {
             Destroy(gameObject);
 

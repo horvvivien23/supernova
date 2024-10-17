@@ -9,7 +9,7 @@ public class PointManager : MonoBehaviour
     public TMP_Text scoreText;
 
     public TMP_Text finalScoreText;
-    public TMP_Text highScoreText;
+    //public TMP_Text highScoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +37,6 @@ public class PointManager : MonoBehaviour
             PlayerPrefs.SetInt("SavedHighScore", score);
         }
         finalScoreText.text = score.ToString();
-        highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
+        //highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
     }
 }

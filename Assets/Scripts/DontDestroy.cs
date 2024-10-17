@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    private static GameObject[] presistentObjects = new GameObject[3];
+    private static GameObject[] presistentObjects = new GameObject[5];
     public int objectIndex;
     // Start is called before the first frame update
     void Awake()
