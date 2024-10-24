@@ -411,6 +411,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819940547}
     m_Modifications:
+    - target: {fileID: 116067200992177731, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3744767579008353397, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
       propertyPath: m_Name
       value: Enemy1 (5)
@@ -478,7 +482,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 819940547}
-  - component: {fileID: 819940546}
   - component: {fileID: 819940545}
   - component: {fileID: 819940544}
   m_Layer: 0
@@ -560,19 +563,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &819940546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819940543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf65e322ebdaba43b98e92db7b7e05a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 40
 --- !u!4 &819940547
 Transform:
   m_ObjectHideFlags: 0
@@ -707,6 +697,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819940547}
     m_Modifications:
+    - target: {fileID: 116067200992177731, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3744767579008353397, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
       propertyPath: m_Name
       value: Enemy1 (2)
@@ -909,6 +903,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819940547}
     m_Modifications:
+    - target: {fileID: 116067200992177731, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3744767579008353397, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
       propertyPath: m_Name
       value: Enemy1 (1)
@@ -1109,6 +1107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819940547}
     m_Modifications:
+    - target: {fileID: 116067200992177731, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3744767579008353397, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
       propertyPath: m_Name
       value: Enemy1 (4)
@@ -1285,6 +1287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819940547}
     m_Modifications:
+    - target: {fileID: 116067200992177731, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3744767579008353397, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
       propertyPath: m_Name
       value: Enemy1 (3)
@@ -1362,6 +1368,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 819940547}
     m_Modifications:
+    - target: {fileID: 116067200992177731, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3744767579008353397, guid: 0788bcb17bfbbb34fac8d626fac7b8c5, type: 3}
       propertyPath: m_Name
       value: Enemy1

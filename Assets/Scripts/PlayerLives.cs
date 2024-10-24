@@ -104,6 +104,36 @@ public class PlayerLives : MonoBehaviour
                 scoreManager.HighScoreUpdate();
             }
         }
+        if (collision.gameObject.tag == "Boss")
+        {
+            // Csökkentsd a boss életeit
+            Boss BossScript = collision.gameObject.GetComponent<Boss>(); // Feltételezzük, hogy van egy Boss script, ami kezeli a boss logikát
+            if (BossScript != null)
+            {
+                BossScript.TakeDamage();
+            }
+            //Destroy(collision.gameObject);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            lives -= 1;
+            for (int i = 0; i < livesUI.Length; i++)
+            {
+                if (i < lives)
+                {
+                    livesUI[i].enabled = true;
+                }
+                else
+                {
+                    livesUI[i].enabled = false;
+                }
+            }
+            if (lives <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                gameOverPanel.SetActive(true);
+                scoreManager.HighScoreUpdate();
+            }
+        }
 
     }
 }

@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
             pointManager.UpdateScore(50); 
             Destroy(gameObject);
         }
-        /*if(collision.gameObject.tag == "Boss")
+        if(collision.gameObject.tag == "Boss")
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
 
             pointManager.UpdateScore(50); // Frissíti a pontszámot
             Destroy(gameObject); // Eltávolítja a lövedéket
-        }*/
+        }
         if (collision.gameObject.tag == "Asteroid")
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);

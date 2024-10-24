@@ -5,7 +5,7 @@ using TMPro;
 public class Boss : MonoBehaviour
 {
     public int maxLives = 3; // Maximális életek száma
-    private int currentLives; // Jelenlegi életek száma
+    public int currentLives; // Jelenlegi életek száma
     public Image[] hearts; // A szívek UI elemek
 
     void Start()
