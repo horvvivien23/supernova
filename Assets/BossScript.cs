@@ -47,8 +47,10 @@ public class Boss : MonoBehaviour
     {
         Debug.Log("Boss defeated!");
         // Itt helyezd el a boss halálához szükséges logikát (pl. animáció, játék vége, stb.)
+
         Destroy(gameObject); // Például eltávolítja a boss objektumot
     }
+
     /*
     // A lövések érzékeléséhez
     private void OnTriggerEnter2D(Collider2D other)
