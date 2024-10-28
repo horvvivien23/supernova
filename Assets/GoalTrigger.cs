@@ -9,6 +9,7 @@ public class GoalTrigger : MonoBehaviour
         // Ellenõrizzük, hogy a játékos érte el a "Goal" objektumot
         if (collision.gameObject.CompareTag("Spaceship")) // Itt a "Player" tag legyen az ûrhajóé
         {
+            Debug.Log("Goal reached, showing next scene button");
             nextSceneButton.SetActive(true); // A gomb megjelenítése
         }
     }

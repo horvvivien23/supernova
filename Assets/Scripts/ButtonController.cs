@@ -32,6 +32,13 @@ public class ButtonController : MonoBehaviour
                 nextSceneButton.SetActive(true); // A gomb megjelenítése
             }
         }
+        if (collision.gameObject.tag == "Newestgoal")
+        {
+            if (nextSceneButton != null) // Ellenõrzés, hogy a gomb nem null
+            {
+                nextSceneButton.SetActive(true); // A gomb megjelenítése
+            }
+        }
     }
     /*
     public void OnNextSceneButtonClick()

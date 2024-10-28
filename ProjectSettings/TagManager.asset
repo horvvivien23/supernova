@@ -12,6 +12,7 @@ TagManager:
   - Goal
   - Boss
   - Newgoal
+  - Newestgoal
   layers:
   - Default
   - TransparentFX
