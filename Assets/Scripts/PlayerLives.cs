@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerLives : MonoBehaviour
 {
-    public int lives = 3;
-    public Image[] livesUI;
-    public GameObject explosionPrefab;
-    public GameObject gameOverPanel;
+    public int lives = 3;// A játékos életeinek számát tárolja, kezdõértéke 3.
+    public Image[] livesUI; // A UI elemek tömbje, amely az élet ikonokat tartalmazza.
+    public GameObject explosionPrefab; // Az exponáló prefab, amely a játékos halálakor jelenik meg.
+    public GameObject gameOverPanel;// A játék vége panel, amely a játékos halála után jelenik meg.
 
     public PointManager scoreManager;
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class PlayerLives : MonoBehaviour
     {
 
     }
-    
+    /*
     public void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -52,10 +52,37 @@ public class PlayerLives : MonoBehaviour
         }
 
 
-    }
+    }*/
+    // Trigger esemény kezelése; ha a játékos ütközik más objektumokkal.
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Ha az ütközés során ellenséges lövedékkel ütközik.
         if (collision.gameObject.tag == "Enemy Projectile")
+        {
+            Destroy(collision.gameObject);// Az ellenséges lövedék elpusztítása.
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity); // Az exponáló prefab létrehozása.
+            lives -= 1; //Életek csökkentése
+            for (int i = 0; i < livesUI.Length; i++)
+            {
+                if (i < lives)
+                {
+                    livesUI[i].enabled = true; // Az élet ikon megjelenítése.
+                }
+                else
+                {
+                    livesUI[i].enabled = false; // Az élet ikon elrejtése.
+                }
+            }
+            // Ha az élet szám 0-ra csökkent, a játékos elpusztul.
+            if (lives <= 0)
+            {
+                Destroy(gameObject); // A játékos elpusztítása.
+                Time.timeScale = 0;//Idõ megállítása
+                gameOverPanel.SetActive(true);// A játék vége panel megjelenítése.
+                scoreManager.HighScoreUpdate();// A legmagasabb pontszám frissítése.
+            }
+        }//Ugyan az mint az elõzõ csak Enemy tag
+        if (collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
@@ -79,7 +106,7 @@ public class PlayerLives : MonoBehaviour
                 scoreManager.HighScoreUpdate();
             }
         }
-
+        // U.a.
         if (collision.gameObject.tag == "Asteroid")
         {
             Destroy(collision.gameObject);
@@ -103,7 +130,7 @@ public class PlayerLives : MonoBehaviour
                 gameOverPanel.SetActive(true);
                 scoreManager.HighScoreUpdate();
             }
-        }
+        }//u.a.
         if (collision.gameObject.tag == "Boss")
         {
             // Csökkentsd a boss életeit

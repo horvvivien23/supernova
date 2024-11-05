@@ -14,8 +14,10 @@ public class ProjectileShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Ellenõrizzük, hogy megnyomták-e a lövés gombot
         if (Input.GetButtonDown("Fire1"))
         {
+            // Új lövedék példány létrehozása a megadott pozícióban
             Instantiate(ProjectalePrefab, transform.position, Quaternion.identity);
         }
     }

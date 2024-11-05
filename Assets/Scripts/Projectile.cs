@@ -18,18 +18,21 @@ public class Projectile : MonoBehaviour
     {
         transform.Translate(Vector2.up *moveSpeed * Time.deltaTime);
     }
-
+    // Amikor a lövedék ütközik egy másik colliderrel
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        // Ellenõrizzük, hogy a lövedék egy ellenséggel ütközött
+        if (collision.gameObject.tag == "Enemy")
         {
+            // Robbanás effektus létrehozása
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(collision.gameObject);
-            pointManager.UpdateScore(50); 
-            Destroy(gameObject);
+            Destroy(collision.gameObject);// Az ellenség megsemmisítése
+            pointManager.UpdateScore(50); // Pontszám frissítése
+            Destroy(gameObject); //Lövedék eltávolítása
         }
         if(collision.gameObject.tag == "Boss")
         {
+            // Robbanás effektus létrehozása
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
             // Hozzáférés a boss scripthez és élet csökkentése
@@ -42,6 +45,7 @@ public class Projectile : MonoBehaviour
             pointManager.UpdateScore(50); // Frissíti a pontszámot
             Destroy(gameObject); // Eltávolítja a lövedéket
         }
+        //u.a.
         if (collision.gameObject.tag == "Asteroid")
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
@@ -49,6 +53,7 @@ public class Projectile : MonoBehaviour
             pointManager.UpdateScore(50);
             Destroy(gameObject);
         }
+        //u.a.
         if (collision.gameObject.tag == "Boundary")
         {
             Destroy(gameObject);

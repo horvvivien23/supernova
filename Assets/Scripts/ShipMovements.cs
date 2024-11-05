@@ -14,13 +14,18 @@ public class ShipMovements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // A hajó folyamatosan jobbra mozog a megadott sebességgel
         transform.Translate(Vector2.right  * moveSpeed * Time.deltaTime);
     }
+    // Metódus, amely akkor hívódik meg, ha a hajó ütközik egy másik objektummal
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Boundary")
+        // Ellenõrizzük, hogy az ütközés a "Boundary" címkéjû objektummal történt-e
+        if (collision.gameObject.tag == "Boundary")
         {
+            // A hajó Y pozícióját csökkentjük 1 egységgel, hogy alacsonyabbra kerüljön
             transform.position = new Vector3 (transform.position.x, transform.position.y - 1, transform.position.z);
+            // Megfordítjuk a hajó mozgásának irányát
             moveSpeed *= -1;
         }
     }

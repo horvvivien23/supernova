@@ -46,9 +46,9 @@ public class Boss : MonoBehaviour
     private void Die()
     {
         Debug.Log("Boss defeated!");
-        // Itt helyezd el a boss halálához szükséges logikát (pl. animáció, játék vége, stb.)
+        // (pl. animáció, játék vége, stb.)
 
-        Destroy(gameObject); // Például eltávolítja a boss objektumot
+        Destroy(gameObject); // Eltávolítja a boss objektumot
     }
 
     /*
