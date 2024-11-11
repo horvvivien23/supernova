@@ -1,28 +1,40 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5;
-    public float hInput;
-    private float vInput;  // Függõleges input
+    public float moveSpeed = 5f;  // Alapértelmezett sebesség
+    public float slowDownFactor = 0.5f;  // Lassítási tényezõ
+    public float slowDuration = 3f;  // Lassítás idõtartama (másodpercben)
 
+    private float hInput;
+    private float vInput;
+    private bool isSlowed = false;  // Annak jelzése, hogy az ûrhajó lassított állapotban van-e
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         hInput = Input.GetAxisRaw("Horizontal");
-        // Függõleges input
         vInput = Input.GetAxisRaw("Vertical");
-        //transform.Translate(Vector2.right*hInput *moveSpeed* Time.deltaTime);
-        transform.Translate(new Vector2(hInput, vInput) * moveSpeed * Time.deltaTime);
 
+        // Az aktuális sebességet használva mozgatjuk az ûrhajót
+        transform.Translate(new Vector2(hInput, vInput) * moveSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Ha a freezing spottal érintkezik, és még nincs lassítva
+        if (collision.CompareTag("FreezingSpot") && !isSlowed)
+        {
+            isSlowed = true;
+            moveSpeed *= slowDownFactor;  // Lassítjuk a sebességet
+            StartCoroutine(RestoreSpeedAfterDelay());  // Elindítjuk a visszaállítást 3 másodperc múlva
+        }
+    }
+
+    private IEnumerator RestoreSpeedAfterDelay()
+    {
+        yield return new WaitForSeconds(slowDuration);  // 3 másodperc várakozás (vagy amennyi a slowDuration értéke)
+        moveSpeed /= slowDownFactor;  // Visszaállítjuk az eredeti sebességet
+        isSlowed = false;
     }
 }
