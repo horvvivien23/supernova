@@ -1576,6 +1576,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7597791604200436704, guid: 88119bda1cf27584994cd111525d872a, type: 3}
+      propertyPath: leftBoundary
+      value: -114
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597791604200436704, guid: 88119bda1cf27584994cd111525d872a, type: 3}
+      propertyPath: rightBoundary
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 8794541900587830797, guid: 88119bda1cf27584994cd111525d872a, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
