@@ -162,6 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 25
+  leftBoundary: -114
+  rightBoundary: 120
 --- !u!50 &8148659083149197020
 Rigidbody2D:
   serializedVersion: 4
