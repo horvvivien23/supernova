@@ -22,6 +22,18 @@ public class PlayerLives : MonoBehaviour
     {
 
     }
+    public void ResetLives()
+    {
+        lives = 3; // Visszaállítás a kezdõ értékre
+        for (int i = 0; i < livesUI.Length; i++)
+        {
+            livesUI[i].enabled = i < lives; // UI frissítése
+        }
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false); // Játék vége panel elrejtése
+        }
+    }
     /*
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -56,6 +68,19 @@ public class PlayerLives : MonoBehaviour
     // Trigger esemény kezelése; ha a játékos ütközik más objektumokkal.
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Heart")
+        {
+            Destroy(collision.gameObject); // A szív eltávolítása
+            if (lives < livesUI.Length) // Max élet ellenõrzés
+            {
+                lives++; // Élet növelése
+                for (int i = 0; i < livesUI.Length; i++)
+                {
+                    livesUI[i].enabled = i < lives; // UI frissítése
+                }
+            }
+            return; // Kilépünk, hogy ne fusson le más ütközés logika
+        }
         // Ha az ütközés során ellenséges lövedékkel ütközik.
         if (collision.gameObject.tag == "Enemy Projectile")
         {
