@@ -9,7 +9,7 @@ public class PointManager : MonoBehaviour
     public TMP_Text scoreText;
 
     public TMP_Text finalScoreText;
-    //public TMP_Text highScoreText;
+    public TMP_Text highScoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,21 @@ public class PointManager : MonoBehaviour
     {
         score += points;
         scoreText.text = "Score: " + score;
+    }
+    public int points = 0; // A pontok száma
+
+    // Pontszám növelése (ha van ilyen metódusod)
+    public void AddPoints(int amount)
+    {
+        points += amount;
+        Debug.Log("Pontok: " + points);
+    }
+
+    // Pontszám visszaállítása alaphelyzetbe
+    public void ResetPoints()
+    {
+        points = 0;
+        Debug.Log("Pontszám visszaállítva: " + points);
     }
     // Metódus a legjobb pontszám frissítésére, ha az aktuális pontszám meghaladja azt
     public void HighScoreUpdate()
@@ -39,6 +54,6 @@ public class PointManager : MonoBehaviour
             PlayerPrefs.SetInt("SavedHighScore", score);
         }
         finalScoreText.text = score.ToString();
-        //highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString(); // A legjobb pontszám mentése 
+        highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString(); // A legjobb pontszám mentése 
     }
 }

@@ -14,6 +14,7 @@ TagManager:
   - Newgoal
   - Newestgoal
   - FreezingSpot
+  - Heart
   layers:
   - Default
   - TransparentFX
