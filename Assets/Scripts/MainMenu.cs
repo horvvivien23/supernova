@@ -52,12 +52,7 @@ public class MainMenu : MonoBehaviour
             playerLives.ResetLives(); // Meghívja az életek alaphelyzetbe állítását
         }
 
-        // Pontszám alaphelyzetbe állítása
-        PointManager scoreManager = FindObjectOfType<PointManager>();
-        if (scoreManager != null)
-        {
-            scoreManager.ResetPoints(); // Feltételezve, hogy van egy ilyen metódus
-        }
+       
 
         // Game Over Panel elrejtése
         GameObject gameOverPanel = GameObject.Find("GameOverPanel"); // Nevezd el pontosan az UI elemet!

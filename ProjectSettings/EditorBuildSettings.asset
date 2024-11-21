@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FreezingSpots.unity
     guid: 3c4f25decd42c414fabf5c5c591e9db6
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: cb9f528b5e5e18e42aa0845b3594c27d
   m_configObjects: {}
