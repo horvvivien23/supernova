@@ -5,6 +5,81 @@ using TMPro;
 
 public class PointManager : MonoBehaviour
 {
+    public int score; // Az aktuális pontszám
+    public TMP_Text scoreText; // A pontszám megjelenítésére szolgáló UI szöveg
+    public TMP_Text finalScoreText; // A játék végi pontszám szöveg
+    public TMP_Text highScoreText; // A legjobb pontszám szöveg
+
+    // Inicializálás
+    void Start()
+    {
+        // Az aktuális pontszám megjelenítése a játék kezdetekor
+        UpdateScoreUI();
+    }
+
+    // Pontszám növelése
+    public void AddPoints(int amount)
+    {
+        score += amount;
+        Debug.Log("Pontok hozzáadva: " + amount + ", Összes pont: " + score);
+        UpdateScoreUI();
+    }
+
+    // Pontszám visszaállítása alaphelyzetbe
+    public void ResetPoints()
+    {
+        score = 0;
+        Debug.Log("Pontszám visszaállítva: " + score);
+        UpdateScoreUI();
+    }
+
+    // A legjobb pontszám frissítése és megjelenítése
+    public void UpdateHighScore()
+    {
+        int savedHighScore = PlayerPrefs.GetInt("SavedHighScore", 0);
+
+        // Ha az aktuális pontszám magasabb, frissítjük a legjobb pontszámot
+        if (score > savedHighScore)
+        {
+            PlayerPrefs.SetInt("SavedHighScore", score);
+            savedHighScore = score;
+            Debug.Log("Új legjobb pontszám: " + savedHighScore);
+        }
+
+        // A játék végi pontszám és a legjobb pontszám megjelenítése
+        if (finalScoreText != null)
+        {
+            finalScoreText.text = "Score: " + score.ToString();
+        }
+
+        if (highScoreText != null)
+        {
+            highScoreText.text = "HighScore: " + savedHighScore.ToString();
+        }
+    }
+    public void UpdateScore(int points)
+    {
+        score += points;
+        scoreText.text = "Score: " + score;
+    }
+
+    // Pontszám UI frissítése
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+    }
+}
+
+/*using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class PointManager : MonoBehaviour
+{
     public int score;
     public TMP_Text scoreText;
 
@@ -61,7 +136,7 @@ public class PointManager : MonoBehaviour
         highScoreText.text = "HighScore: " + PlayerPrefs.GetInt("SavedHighScore").ToString(); // A legjobb pontszám mentése 
     }
 }
-
+*/
 
 
 /*using System.Collections;

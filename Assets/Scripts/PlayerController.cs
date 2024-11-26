@@ -10,7 +10,21 @@ public class PlayerController : MonoBehaviour
     private float hInput;
     private float vInput;
     private bool isSlowed = false;  // Annak jelzése, hogy az ûrhajó lassított állapotban van-e
+    public Vector3 startPosition;
 
+    void Start()
+    {
+        // Ha nem lett beállítva, akkor alapértelmezett kezdõ pozíció
+        if (startPosition == Vector3.zero)
+            startPosition = transform.position;
+    }
+
+    public void ResetPlayer()
+    {
+        // Visszaállítja a játékos pozícióját és aktiválja
+        transform.position = startPosition;
+        // Ha van más állapot, amit vissza kell állítani, akkor itt tedd meg
+    }
     void Update()
     {
         hInput = Input.GetAxisRaw("Horizontal");
