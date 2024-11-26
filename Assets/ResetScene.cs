@@ -12,6 +12,7 @@ public class GameResetManager : MonoBehaviour
         {
             gameOverPanel.SetActive(false);
         }
+
         Time.timeScale = 1f;
         // Betölti újra az aktuális szintet
         SceneManager.LoadScene("SampleScene");
@@ -22,7 +23,14 @@ public class GameResetManager : MonoBehaviour
 
     private void ResetDontDestroyOnLoadObjects()
     {
-        // Játékos és annak mozgása
+        // Töröljük az összes DontDestroyOnLoad objektumot
+        var dontDestroyObjects = FindObjectsOfType<DontDestroy>();
+        foreach (var dontDestroy in dontDestroyObjects)
+        {
+            Destroy(dontDestroy.gameObject); // Eltávolítjuk a régi objektumokat
+        }
+
+        // Játékos és egyéb objektumok resetelése
         var player = FindObjectOfType<PlayerController>();
         if (player != null)
         {
@@ -44,7 +52,7 @@ public class GameResetManager : MonoBehaviour
         }
 
         // Ûrhajó pozíciójának visszaállítása és aktiválása
-        var playerShip = FindObjectOfType<PlayerController>(); // Ha más a neve, cseréld le
+        var playerShip = FindObjectOfType<PlayerController>();
         if (playerShip != null)
         {
             playerShip.gameObject.SetActive(true); // Aktiválja az ûrhajót, ha nem aktív

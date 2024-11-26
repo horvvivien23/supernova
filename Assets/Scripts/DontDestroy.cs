@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    private static GameObject[] presistentObjects = new GameObject[5];
+    private static GameObject[] persistentObjects = new GameObject[5];
     public int objectIndex;
-    // Start is called before the first frame update
+
     void Awake()
     {
-        // Ha a `presistentObjects` array-ben az adott indexen még nincs objektum (null),
-        // akkor a jelenlegi `gameObject`-et hozzárendeli ehhez az indexhez,
-        // és meghívja a DontDestroyOnLoad metódust, hogy az objektum a jelenetváltások során is megmaradjon.
-        if (presistentObjects[objectIndex] == null)
+        // Ha az objektum még nem létezik, akkor hozzáadjuk
+        if (persistentObjects[objectIndex] == null)
         {
-            presistentObjects[objectIndex] = gameObject;
+            persistentObjects[objectIndex] = gameObject;
             DontDestroyOnLoad(gameObject);
         }
-        // Ha az adott indexen már van egy másik példány, és az nem a jelenlegi `gameObject`,
-        // akkor ezt a példányt megsemmisíti, hogy ne legyenek duplikált objektumok.
-        else if (presistentObjects[objectIndex] != gameObject)
+        else if (persistentObjects[objectIndex] != gameObject)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // Töröljük, ha már létezik
         }
-
-        
     }
 
-  
+    // A metódus, amit a reseteléskor hívhatunk
+    public void ResetObjectState()
+    {
+        if (objectIndex == 0) // Például a játékos objektum resetelése
+        {
+            var player = GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.ResetPlayer();
+            }
+        }
+        // Egyéb objektumok resetelése itt, ha szükséges
+    }
 }
