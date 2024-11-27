@@ -52,7 +52,7 @@ public class MainMenu : MonoBehaviour
             playerLives.ResetLives(); // Meghívja az életek alaphelyzetbe állítását
         }
 
-       
+
 
         // Game Over Panel elrejtése
         GameObject gameOverPanel = GameObject.Find("GameOverPanel"); // Nevezd el pontosan az UI elemet!

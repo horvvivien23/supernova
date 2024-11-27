@@ -409,12 +409,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6027502527875312444, guid: d25b348a03d40904986e6872f1a169ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6899261781676648562, guid: d25b348a03d40904986e6872f1a169ff, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8196234667590162231, guid: d25b348a03d40904986e6872f1a169ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -164
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2618144336798337547, guid: d25b348a03d40904986e6872f1a169ff, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1400841276723204875, guid: d25b348a03d40904986e6872f1a169ff, type: 3}
       insertIndex: -1
@@ -1942,7 +1951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.33142, y: -417}
+  m_AnchoredPosition: {x: 31.33142, y: -305}
   m_SizeDelta: {x: 222.6627, y: 74.3861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2024711748
