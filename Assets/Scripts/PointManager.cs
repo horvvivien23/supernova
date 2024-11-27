@@ -49,12 +49,12 @@ public class PointManager : MonoBehaviour
         // A játék végi pontszám és a legjobb pontszám megjelenítése
         if (finalScoreText != null)
         {
-            finalScoreText.text = "Score: " + score.ToString();
+            finalScoreText.text =  score.ToString();
         }
 
         if (highScoreText != null)
         {
-            highScoreText.text = "HighScore: " + savedHighScore.ToString();
+            highScoreText.text =  savedHighScore.ToString();
         }
     }
     public void UpdateScore(int points)

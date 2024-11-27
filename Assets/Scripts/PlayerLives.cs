@@ -63,7 +63,22 @@ public class PlayerLives : MonoBehaviour
         {
             HandlePlayerDamage(collision.gameObject);
         }
+        if (collision.gameObject.tag == "Heart")
+        {
+            Destroy(collision.gameObject); // A szív eltávolítása
+            if (lives < livesUI.Length) // Max élet ellenõrzés
+            {
+                lives++; // Élet növelése
+                for (int i = 0; i < livesUI.Length; i++)
+                {
+                    livesUI[i].enabled = i < lives; // UI frissítése
+                }
+            }
+            return; // Kilépünk, hogy ne fusson le más ütközés logika
+        }
+
     }
+
 
     private void HandlePlayerDamage(GameObject collisionObject)
     {

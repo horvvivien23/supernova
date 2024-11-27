@@ -851,15 +851,15 @@ PrefabInstance:
     - target: {fileID: 2301648140538710678, guid: 831f19173ae3c454ca47749d7e366879, type: 3}
       propertyPath: scoreText
       value: 
-      objectReference: {fileID: 1901988542}
+      objectReference: {fileID: 0}
     - target: {fileID: 2301648140538710678, guid: 831f19173ae3c454ca47749d7e366879, type: 3}
       propertyPath: highScoreText
       value: 
-      objectReference: {fileID: 1216327678}
+      objectReference: {fileID: 0}
     - target: {fileID: 2301648140538710678, guid: 831f19173ae3c454ca47749d7e366879, type: 3}
       propertyPath: finalScoreText
       value: 
-      objectReference: {fileID: 1901988542}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
