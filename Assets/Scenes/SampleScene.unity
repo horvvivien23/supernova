@@ -2534,7 +2534,7 @@ PrefabInstance:
     - target: {fileID: 679739917362770857, guid: 2128677b2e37ee8498e32d97f2991152, type: 3}
       propertyPath: shootSound
       value: 
-      objectReference: {fileID: 8300000, guid: 48c91e5722c07624e903901b416e2362, type: 3}
+      objectReference: {fileID: 8300000, guid: d59f8405a7bcdd54f82713f44c189150, type: 3}
     - target: {fileID: 679739917362770857, guid: 2128677b2e37ee8498e32d97f2991152, type: 3}
       propertyPath: audioSource
       value: 
