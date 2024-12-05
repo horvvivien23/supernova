@@ -76,7 +76,18 @@ public class PlayerLives : MonoBehaviour
             }
             return; // Kilépünk, hogy ne fusson le más ütközés logika
         }
+        if (collision.gameObject.CompareTag("Goal"))  // Példa, amikor elérjük a célt
+        {
+            SaveHighScoreIfNeeded(); // A highscore mentése
+        }
 
+    }
+    private void SaveHighScoreIfNeeded()
+    {
+        if (scoreManager != null)
+        {
+            scoreManager.UpdateHighScore(); // Highscore frissítése
+        }
     }
 
 
@@ -99,8 +110,6 @@ public class PlayerLives : MonoBehaviour
         if (lives <= 0)
         {
             // Játék vége logika
-            Destroy(gameObject);
-            Time.timeScale = 0;
             if (gameOverPanel != null)
             {
                 gameOverPanel.SetActive(true);
@@ -109,6 +118,8 @@ public class PlayerLives : MonoBehaviour
             {
                 scoreManager.UpdateHighScore();
             }
+            Destroy(gameObject);
+            Time.timeScale = 0;
         }
     }
 }
