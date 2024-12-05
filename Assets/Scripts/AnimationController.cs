@@ -3,6 +3,27 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     public Animator animator; // Az animációért felelõs Animator
+
+    private void Start()
+    {
+        // Ellenõrizzük, hogy van-e Animator
+        if (animator != null)
+        {
+            // Az animáció indítása, a név legyen az Animatorban szereplõ animáció neve
+            animator.Play("AnimationName");
+        }
+        else
+        {
+            Debug.LogWarning("Animator nincs beállítva!");
+        }
+    }
+}
+
+/*using UnityEngine;
+
+public class AnimationController : MonoBehaviour
+{
+    public Animator animator; // Az animációért felelõs Animator
     public Canvas canvas; // A megjelenítendõ Canvas
     public GameObject animationObject; // Az animáció GameObject-je
 
@@ -38,4 +59,4 @@ public class AnimationController : MonoBehaviour
             canvas.gameObject.SetActive(true);
         }
     }
-}
+}*/
