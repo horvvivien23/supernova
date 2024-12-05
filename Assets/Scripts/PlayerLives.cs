@@ -80,6 +80,35 @@ public class PlayerLives : MonoBehaviour
         {
             SaveHighScoreIfNeeded(); // A highscore mentése
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            if (explosionPrefab != null)
+            {
+                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            }
+
+            // Életek csökkentése
+            lives--;
+
+            // UI frissítése
+            UpdateLivesUI();
+
+            if (lives <= 0)
+            {
+                // Játék vége logika
+                if (gameOverPanel != null)
+                {
+                    gameOverPanel.SetActive(true);
+                }
+                if (scoreManager != null)
+                {
+                    scoreManager.UpdateHighScore();
+                }
+                Destroy(gameObject);
+                Time.timeScale = 0;
+            }
+        }
+
 
     }
     private void SaveHighScoreIfNeeded()
